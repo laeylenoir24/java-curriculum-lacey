@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/1-java-languge-fundamentals/exercises" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1-java-languge-fundamentals/exercises/1" isTestSource="false" packagePrefix="main.java" />
+      <sourceFolder url="file://$MODULE_DIR$/1-java-languge-fundamentals/lessons" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1-java-languge-fundamentals/student-exercise-solutions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-java-oop/exercises" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-java-oop/lessons" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-java-oop/student-exercise-solutions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3-advanced-java-concepts/exercises" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3-advanced-java-concepts/lessons" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3-advanced-java-concepts/student-exercise-solutions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/4-java-midpoint-assessment/exercises" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/4-java-midpoint-assessment/lessons" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/4-java-midpoint-assessment/student-exercise-solutions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/5-databases/exercises" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/5-databases/lessons" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/5-databases/student-exercise-solutions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/6-html-css-js/exercises" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/6-html-css-js/lessons" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/6-html-css-js/student-exercise-solutions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/7-react/exercises" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/7-react/lessons" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/7-react/student-exercise-solutions" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
