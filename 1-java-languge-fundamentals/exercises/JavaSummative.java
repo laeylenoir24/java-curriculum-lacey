@@ -51,4 +51,15 @@ public class JavaSummative {
             }
         }
     }
+    private static void rentLocker() {
+        for (int i = 0; i < totalLockers; i++) {
+            if (lockers[i] == null) {
+                String pin = generatePin();
+                lockers[i] = pin;
+                System.out.println("Locker " + (i + 1) + "rented. PIN: " + pin);
+                return;
+            }
+        }
+        System.out.println("No lockers available.");
+    }
 }
