@@ -62,4 +62,24 @@ public class JavaSummative {
         }
         System.out.println("No lockers available.");
     }
+
+    private static void openLocker(Scanner scanner) {
+        int lockerNum = promptLockerNum(scanner);
+        if (!isValidLockerNum(lockerNum))
+            return;
+
+        if (locker[lockerNum - 1] == null) {
+            System.out.println("Locker is not currently rented.");
+            return;
+        }
+
+        String pin = promptPin(scanner);
+        if (lockers[lockerNum - 1].equals(pin)) {
+            System.out.println("Locker " + lockerNum + " opened.");
+        } else {
+            System.out.println("Incorrect PIN.");
+        }
+    }
+
+    
 }
