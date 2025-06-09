@@ -118,6 +118,19 @@ public class JavaSummative {
         return false;
     }
 
+    private static int promptLockerNum(Scanner scanner) {
+        System.out.print("Enter locker number (-1" + totalLockers +"): ");
+        try {
+            int num = Integer.parseInt(scanner.nextLine());
+            return num;
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number.");
+            return -1;
+        }
+
+        }
+    }
+
 
 
 
