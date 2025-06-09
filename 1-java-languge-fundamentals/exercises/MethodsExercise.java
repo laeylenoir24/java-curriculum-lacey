@@ -191,15 +191,46 @@ public class methodsExercise {
     //  -- SUMMARY --
     //  Transaction Total: $250.82
 
+
     public static void main(String[] args) {
+        String[] itemNames = {"Chicken", "Beef", "Fish"};
+        int[] itemCount = {3, 2, 5};
+        double[] itemCost = {4.99, 6.49, 3.75};
+
+        transactionReport(itemNames, itemCost, itemCount);
+    }
+
+    public static void transactionReport(String[] itemNames, int[] itemCount, double[] itemCost) {
+        printHeader();
+
+        double total = 0;
+        for (int i = 0; i < itemNames.length; i++) {
+            double lineTotal = printLineItem(itemNames[i], itemCount[i], itemCost[i]);
+            total += totalLine;
+        }
+
+        printSummary(total);
+
+    }
+
+    public static void printHeader() {
+        System.out.println("TRANSACTION REPORT");
+        System.out.printf("%-10s, %5s, %10s, %12s%n", "Item", "Count", "Price", "Line Total");
+    }
+
+    public static double printLineItem(String name, int count, double price) {
+        double lineTotal = count * price;
+        System.out.printf("%-10, %5d, %10.2f, %12.2f%n", name, count, price, lineTotal);
+        return;
+    }
+
+    private static void printSummary(double total) {
+        System.out.printf("TOTAL: %35.2f%n", total);
 
 
-        String[] itemNames = {"Notebook", "Pen", "Whiteout"};
-        int[] itemCount = {15, 20, 3};
-        double[] price = {10.99, 2.95, 8.99};
-        // transactionReport(itemNames, itemCount, price);
+
+
 
     }
 
 
-    //new push
