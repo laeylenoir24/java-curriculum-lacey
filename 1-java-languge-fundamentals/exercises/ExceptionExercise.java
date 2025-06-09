@@ -17,22 +17,54 @@ public class ExceptionExercise {
         ● Allow only numbers for the PIN and ensure it is exactly 4 digits
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] arg) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your age: ");
-        int age = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Enter your email: ");
-        String email = scanner.nextLine();
+        String email = "";
+        int age = 0;
+        String pin = "";
 
-        System.out.print("Enter your 4-digit PIN: ");
-        int pin = Integer.parseInt(scanner.nextLine());
+        while (email == null || email.isEmpty()) {
+            System.out.println("Enter your email: ");
+            email = scanner.nextLine();
+            if (email == null || email.isEmpty()) {
+                System.out.println("Error: Email cannot be empty or null. Try again.");
+            }
+        }
 
-        System.out.println("\nRegistration Successful!");
-        System.out.println("Age: " + age);
-        System.out.println("Email: " + email);
-        System.out.println("PIN: " + pin);
+        while (true) {
+            System.out.println("Enter your age: ");
+            if (scanner.hasNextInt()) {
+                age = (scanner.nextInt());
+                if (age >= 18) {
+                    break;
+
+                } else {
+                    System.out.println("Error: Age must be at least 18. Try again.");
+                }
+            } else {
+                System.out.println("Error: Invalid input. Enter a number for age.");
+                scanner.next();
+            }
+        }
+
+        scanner.nextLine();
+        while (true) {
+            System.out.println("Enter your 4 digit PIN.");
+            pin = scanner.nextLine();
+
+            if (pin.length() == 4 && pin.matches("\\d{4}")) {
+                break;
+            } else {
+                System.out.println("Error: PIN must be 4 digits and only contain numbers.");
+            }
+        }
+
+        System.out.println("Registration successful!");
+
+        System.out.println("Registration attempt complete!");
+        scanner.close();
     }
+
 }
 
-//new push
