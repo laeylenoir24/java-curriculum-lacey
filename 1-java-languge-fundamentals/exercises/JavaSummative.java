@@ -68,7 +68,7 @@ public class JavaSummative {
         if (!isValidLockerNum(lockerNum))
             return;
 
-        if (locker[lockerNum - 1] == null) {
+        if (lockers[lockerNum - 1] == null) {
             System.out.println("Locker is not currently rented.");
             return;
         }
@@ -134,10 +134,16 @@ public class JavaSummative {
             System.out.println("Locker number out of range.");
             return false;
         }
+        return true;
+    }
+    private static String promptPin(Scanner scanner) {
+        System.out.println("Enter PIN: ");
+        return scanner.nextLine();
+    }
     }
 
 
-    }
+
 
 
 
