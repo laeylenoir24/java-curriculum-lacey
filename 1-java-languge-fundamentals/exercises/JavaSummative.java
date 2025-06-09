@@ -111,6 +111,15 @@ public class JavaSummative {
         return String.format("%0" + pinLength + "d", pin);
     }
 
+    private static boolean hasAvailLocker() {
+        for (String pin : lockers) {
+            if (pin == null) return true;
+        }
+        return false;
+    }
+
+
+
 
 
     
