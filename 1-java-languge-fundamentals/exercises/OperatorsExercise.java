@@ -57,22 +57,22 @@ public class OperatorsExercise {
         double kelvin = 350;
         double fahrenheit = 212;
 
-        double celsiusToKelvin = 0; // ~305.15°K
+        double celsiusToKelvin = celsius + 273.15;
         System.out.println(celsius + "° Celsius = " + celsiusToKelvin + "° Kelvin");
 
-        double kelvinToCelsius = 0; // ~76.85°C
+        double kelvinToCelsius = kelvin - 273.15;
         System.out.println(kelvin + "° Kelvin = " + kelvinToCelsius + "° Celsius");
 
-        double fahrenheitToCelsius = 0; // ~100°C
+        double fahrenheitToCelsius = (fahrenheit - 32) * 5.0 / 9.0;
         System.out.println(fahrenheit + "° Fahrenheit = " + fahrenheitToCelsius + "° Celsius");
 
-        double celsiusToFahrenheit = 0; // ~ 89.6°K
+        double celsiusToFahrenheit = celsius * 9.0 / 5.0 + 32;
         System.out.println(celsius + "° Celsius = " + celsiusToFahrenheit + "° Kelvin");
 
-        double fahrenheitToKelvin = 0; // ~373.15°K
+        double fahrenheitToKelvin = (fahrenheit - 32) * 5.0 / 9.0 + 273.15;
         System.out.println(fahrenheit + "° Fahrenheit = " + fahrenheitToKelvin + "° Kelvin");
 
-        double kelvinToFahrenheit = 0; // ~170.33°F
+        double kelvinToFahrenheit = (kelvin - 273.15) * 9.0 / 5.0 + 32;
         System.out.println(kelvin + "° Kelvin = " + kelvinToFahrenheit + "° Fahrenheit");
 
 
