@@ -81,5 +81,29 @@ public class JavaSummative {
         }
     }
 
+    private static void releaseLocker(Scanner scanner) {
+        int lockerNum = promptLockerNum(scanner);
+        if (!isValidLockerNum(lockerNum)) return;
+
+        if (lockers[lockerNum - 1] == null) {
+            System.out.println("Locker is not currently rented.");
+            return;
+        }
+
+        String pin = promptPin(scanner);
+        if (lockers[lockerNum - 1].equals(pin)) {
+            System.out.println("Are you sure you want to release this locker? (Yes or No");
+            String confirmation = scanner.nextLine();
+            if (confirmation.equalsIgnoreCase("yes")) {
+                lockers[lockerNum - 1] = null;
+                System.out.println("Locker" + lockerNum + " released.");
+            } else {
+                System.out.println("Locker release canceled.");
+            }
+        } else {
+            System.out.println("Incorrect PIN");
+        }
+    }
+
     
 }
