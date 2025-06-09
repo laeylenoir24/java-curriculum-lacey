@@ -1,4 +1,7 @@
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Scanner:
 
 public class ArraysExercise {
     public static void main(String[] args) {
@@ -117,6 +120,21 @@ public class ArraysExercise {
         //  4
         //  5
 
+        Set<Integer> seen = new HashSet<>();
+        Set<Integer> duplicates = new HashSet<>();
+
+        for (int num : removeDuplicates) {
+            if (!seen.add(num)) {
+                duplicates.add(num);
+            }
+    }
+
+        System.out.println("Values that occur multiple times:");
+        for (int num : duplicates) {
+            System.out.println(num);
+
+    }
+
 
         /* 6. Arrays and User Input (Transaction Calculator 2.0) */
         // Practice managing multiple arrays
@@ -139,7 +157,35 @@ public class ArraysExercise {
         //  Enter the cost per item: 199.99
         //  Enter more items?: n
         //  Total Cost: $729.56
+        Scanner scanner = new Scanner(System.in);
+
+        double total = 0.0;
+        int itemCount = 0;
+        final int maxItems = 10;
+
+        while (itemCount < maxItems) {
+            System.out.println("Would you like to add an item? (Yes or No");
+            String response = scanner.nextLine();
+
+            if (response.equalsIgnoreCase("no")) {
+                break;
+            }
+
+            System.out.println("Enter the number of items: ");
+            int quantity = scanner.nextInt();
+
+            System.out.println("Enter price per item: ");
+            double price = scanner.nextDouble();
+
+            double lineTotal = quantity * price;
+            total += lineTotal;
+
+            itemCount++;
+            scanner.nextLine();
+
+            System.out.printf("Total cost for all items: $%2f\n", total);
+
+            scanner.close();
+    }
     }
 
-
-// new push
