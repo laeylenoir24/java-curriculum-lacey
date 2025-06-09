@@ -27,7 +27,9 @@
       <sourceFolder url="file://$MODULE_DIR$/7-react/student-exercise-solutions" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2-java-oop" isTestSource="false" />
     </content>
-    <content url="jar://$USER_HOME$/Downloads/2-java-oop.zip!/" />
+    <content url="jar://$USER_HOME$/Downloads/2-java-oop.zip!/">
+      <sourceFolder url="jar://$USER_HOME$/Downloads/2-java-oop.zip!/" isTestSource="false" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
