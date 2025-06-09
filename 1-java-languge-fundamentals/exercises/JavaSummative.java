@@ -105,5 +105,13 @@ public class JavaSummative {
         }
     }
 
+    public static String generatePin() {
+        Random rand = new Random();
+        int pin = rand.nextInt(maxPin);
+        return String.format("%0" + pinLength + "d", pin);
+    }
+
+
+
     
 }
