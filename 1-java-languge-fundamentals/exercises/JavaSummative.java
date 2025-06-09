@@ -129,6 +129,14 @@ public class JavaSummative {
         }
 
         }
+    private static boolean isValidLockerNum(int num) {
+        if (num < 1 || num > totalLockers) {
+            System.out.println("Locker number out of range.");
+            return false;
+        }
+    }
+
+
     }
 
 
@@ -136,4 +144,4 @@ public class JavaSummative {
 
 
     
-}
+
