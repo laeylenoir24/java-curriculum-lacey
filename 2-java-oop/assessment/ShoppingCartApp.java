@@ -11,7 +11,7 @@ public abstract class ShoppingCartProgram implements Discount {
     static Map<String, Item> inventory = new HashMap<>();
     static Cart cart = new Cart();
 
-        
+
     }
 
 static void runMenuChoice(String choice) {
@@ -24,6 +24,16 @@ static void runMenuChoice(String choice) {
     else System.out.println("Invalid. Try again");
     }
 
+
+
+
+static void startInventory() {
+    ShoppingCartProgram.inventory.put("Barbie", new Item("Barbie",10.99, 20));
+    ShoppingCartProgram.inventory.put("Hot Wheels", new Item("Hot Wheels", 2.99, 15));
+    ShoppingCartProgram.inventory.put("Yoyo", new Item("Yoyo", 0.99, 10));
+    ShoppingCartProgram.inventory.put("Bread", new Item("Bread", 1.99, 8));
+
+}
 
 static void displayMenu() {
     System.out.println("\n-- Main Menu --");
