@@ -64,6 +64,34 @@ static void handleApplyDiscount() {
 }
 
 static void handleRemoveItem() {
+    if (ShoppingCartProgram.cart.isEmpty()) {
+        System.out.println("Cart is empty. Nothing to remove.");
+        return;
+    }
+    ShoppingCartProgram.cart.display();
+    System.out.print("Enter item name to remove: ");
+    String name = scanner.nextLine();
+    Item inCart = null;
+    Item[] items = new Item[0];
+    for (Item item : items) {
+        if (item.getName().equals(name)) {
+            inCart = item;
+            break;
+        }
+    }
+    if (inCart == null) {
+        System.out.println("Item not in cart.");
+        return;
+    }
+    System.out.print("Enter quantity to remove: ");
+    int qty = Integer.parseInt(scanner.nextLine());
+    if (qty > inCart.quantity) {
+        System.out.println("Cannot remove more than is in cart.");
+        return;
+    }
+    ShoppingCartProgram.cart.removeItem(name, qty);
+    ShoppingCartProgram.inventory.get(name).quantity += qty;
+    System.out.printf("Removed %d x %s from cart.\n", qty, name);
 }
 
 static void handleAddItem() {
