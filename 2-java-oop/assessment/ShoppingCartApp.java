@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static objects.ConsoleUI.scanner;
+
 public abstract class ShoppingCartProgram implements Discount {
     static Scanner scanner = new Scanner(System.in);
     static Map<String, Item> inventory = new HashMap<>();
@@ -52,19 +54,42 @@ static void displayMenu() {
     System.out.print("Choose an option: ");
 }
 
-private static void exitProgram() {
+static void exitProgram() {
 }
 
-private static void handleCheckout() {
+static void handleCheckout() {
 }
 
-private static void handleApplyDiscount() {
+static void handleApplyDiscount() {
 }
 
-private static void handleRemoveItem() {
+static void handleRemoveItem() {
 }
 
-private static void handleAddItem() {
+static void handleAddItem() {
+    System.out.println("\n-- Available Items --");
+    for (Item item : ShoppingCartProgram.inventory.values())
+        System.out.printf("%s - $%.2f (%d in stock)\n", item.getName(), item.getPrice(), item.quantity);
+    System.out.print("Enter item name to add: ");
+    String name = scanner.nextLine();
+    Item item = ShoppingCartProgram.inventory.get(name);
+    if (item == null) {
+        System.out.println("Item not found.");
+        return;
+    }
+    if (item.quantity == 0) {
+        System.out.println("Out of stock.");
+        return;
+    }
+    System.out.print("Enter quantity to add: ");
+    int qty = Integer.parseInt(scanner.nextLine());
+    if (qty > item.quantity) {
+        System.out.println("Not enough in stock.");
+        return;
+    }
+    item.quantity -= qty;
+    ShoppingCartProgram.cart.addItem(item, qty);
+    System.out.printf("Added %d x %s to cart.\n", qty, item.getName());
 }
 
 
