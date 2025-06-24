@@ -7,9 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static assessment.Cart.cart;
+import static assessment.Cart.items;
 import static objects.ConsoleUI.scanner;
 
-public abstract class ShoppingCartProgram implements Discount {
+public abstract static class ShoppingCartProgram implements Discount {
     static Scanner scanner = new Scanner(System.in);
     static Map<String, Item> inventory = new HashMap<>();
     static Cart cart = new Cart();
@@ -59,7 +61,30 @@ static void exitProgram() {
 }
 
 static void handleCheckout() {
+    if (ShoppingCartProgram.cart.isEmpty()) {
+        System.out.println("Cannot checkout an empty cart.");
+        return;
+    }
+
+    System.out.println("\n-- Receipt --");
+    for (Item item : cart.items) {
+        double lineTotal = item.getPrice() * item.quantity;
+        System.out.printf("%s x%d: $%.2f\n", item.getName(), item.quantity, lineTotal);
+    }
+
+    System.out.printf("Subtotal: $%.2f\n", ShoppingCartProgram.cart.getSubtotal());
+
+    if (ShoppingCartProgram.cart.discount != null) {
+        System.out.printf("Discount (%s): -$%.2f\n", ShoppingCartProgram.cart.discount.getDescription(), ShoppingCartProgram.cart.getDiscountAmount());
+    }
+
+    System.out.printf("Total Due: $%.2f\n", ShoppingCartProgram.cart.getTotal());
+
+    ShoppingCartProgram.cart.clear();
+
+    System.out.println("Thank you for your purchase!");
 }
+
 
 static void handleApplyDiscount() {
     if ((ShoppingCartProgram.cart.discount == PercentageDiscount.BOGODiscount.parseBOGODiscount(null))) {
