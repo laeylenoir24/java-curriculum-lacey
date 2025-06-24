@@ -1,6 +1,7 @@
 import assessment.Cart;
 import assessment.Discount;
 import assessment.Item;
+import assessment.PercentageDiscount;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,6 +62,27 @@ static void handleCheckout() {
 }
 
 static void handleApplyDiscount() {
+    if ((ShoppingCartProgram.cart.discount == PercentageDiscount.BOGODiscount.parseBOGODiscount(null))) {
+        System.out.println("\n-- Discount Options --");
+        System.out.println("1. 10% Off");
+        System.out.println("2. BOGO (Buy One Get One)");
+        System.out.println("3. Cancel");
+        System.out.print("Select discount type: ");
+        String input = scanner.nextLine();
+        if (input.equals("1")) ShoppingCartProgram.cart.discount = new PercentageDiscount.BOGODiscount();
+        else if (input.equals("2")) ShoppingCartProgram.cart.discount = new PercentageDiscount.BOGODiscount();
+        else if (input.equals("3")) {
+            System.out.println("No discount applied.");
+            return;
+        } else {
+            System.out.println("Invalid choice.");
+            return;
+        }
+        System.out.println("Discount applied: " + ShoppingCartProgram.cart.discount.getDescription());
+    } else {
+        System.out.println("A discount has already been applied.");
+        return;
+    }
 }
 
 static void handleRemoveItem() {
