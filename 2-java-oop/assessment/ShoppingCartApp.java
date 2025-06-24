@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 import static assessment.Cart.cart;
-import static assessment.Cart.items;
 import static objects.ConsoleUI.scanner;
 
 public abstract static class ShoppingCartProgram implements Discount {
@@ -58,6 +57,8 @@ static void displayMenu() {
 }
 
 static void exitProgram() {
+    System.out.println("Thank you for shopping with us. Goodbye!");
+    System.exit(0);
 }
 
 static void handleCheckout() {
@@ -67,7 +68,7 @@ static void handleCheckout() {
     }
 
     System.out.println("\n-- Receipt --");
-    for (Item item : cart.items) {
+    for (Item item : Cart.items) {
         double lineTotal = item.getPrice() * item.quantity;
         System.out.printf("%s x%d: $%.2f\n", item.getName(), item.quantity, lineTotal);
     }
