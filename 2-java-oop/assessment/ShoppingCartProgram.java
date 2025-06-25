@@ -1,3 +1,5 @@
+package assessment;
+
 import assessment.Cart;
 import assessment.Discount;
 import assessment.Item;
@@ -7,13 +9,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import static assessment.Cart.cart;
-import static objects.ConsoleUI.scanner;
-
-public abstract static class ShoppingCartProgram implements Discount {
+public abstract class ShoppingCartProgram implements Discount {
     static Scanner scanner = new Scanner(System.in);
     static Map<String, Item> inventory = new HashMap<>();
     static Cart cart = new Cart();
+
+    public static void main(String[] args) {
+        startInventory();
+        while (true) {
+            displayMenu();
+            String choice = scanner.nextLine();
+            runMenuChoice(choice);
+        }
 
 
     }
@@ -68,7 +75,7 @@ static void handleCheckout() {
     }
 
     System.out.println("\n-- Receipt --");
-    for (Item item : Cart.items) {
+    for (Item item : Cart.getitems()) {
         double lineTotal = item.getPrice() * item.quantity;
         System.out.printf("%s x%d: $%.2f\n", item.getName(), item.quantity, lineTotal);
     }
@@ -95,7 +102,8 @@ static void handleApplyDiscount() {
         System.out.println("3. Cancel");
         System.out.print("Select discount type: ");
         String input = scanner.nextLine();
-        if (input.equals("1")) ShoppingCartProgram.cart.discount = new PercentageDiscount.BOGODiscount();
+
+        if (input.equals("1")) ShoppingCartProgram.cart.discount = new PercentageDiscount.TenPercentOff();
         else if (input.equals("2")) ShoppingCartProgram.cart.discount = new PercentageDiscount.BOGODiscount();
         else if (input.equals("3")) {
             System.out.println("No discount applied.");
@@ -119,7 +127,8 @@ static void handleRemoveItem() {
     ShoppingCartProgram.cart.display();
     System.out.print("Enter item name to remove: ");
     String name = scanner.nextLine();
-    Item inCart = null;
+
+    Item inCart = cart.getItemByName(name);
     Item[] items = new Item[0];
     for (Item item : items) {
         if (item.getName().equals(name)) {
@@ -146,9 +155,11 @@ static void handleAddItem() {
     System.out.println("\n-- Available Items --");
     for (Item item : ShoppingCartProgram.inventory.values())
         System.out.printf("%s - $%.2f (%d in stock)\n", item.getName(), item.getPrice(), item.quantity);
+
     System.out.print("Enter item name to add: ");
     String name = scanner.nextLine();
     Item item = ShoppingCartProgram.inventory.get(name);
+
     if (item == null) {
         System.out.println("Item not found.");
         return;
@@ -168,8 +179,6 @@ static void handleAddItem() {
     System.out.printf("Added %d x %s to cart.\n", qty, item.getName());
 }
 
-
-void main() {
 }
 
 
