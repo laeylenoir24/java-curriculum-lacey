@@ -7,12 +7,16 @@ import org.junit.jupiter.api.Test;
 import static testing.TestingExercise.sleepIn;
 
 public class TestingExerciseTest {
+    public static void main(String[] args) {
+    }
     public static boolean sleepIn(boolean weekday, boolean vacation) {
 
         return !weekday || vacation;
 
-        @Nested
-        class SleepInTest {
+    }
+
+    @Nested
+    class SleepInTest {
 
             public void main(String[] args) {
                 testSleepIn1();
@@ -189,6 +193,12 @@ public class TestingExerciseTest {
                         testCigarParty3();
                         testCigarParty4();
                         testCigarParty5();
+                        testCigarParty6();
+                        testCigarParty7();
+                        testCigarParty8();
+                        testCigarParty9();
+                        testCigarParty10();
+                        testCigarParty11();
                     }
 
                     public boolean cigarParty(int cigars, boolean isWeekend) {
@@ -258,8 +268,84 @@ public class TestingExerciseTest {
                     System.out.println(actual == expected ? "Test 5 PASSED" : "Test 5 FAILED");
                 }
 
+                @Test
+                public void testCigarParty6() {
+
+                    int cigars = 60;
+                    boolean isWeekend = false;
+                    boolean expected = false;
+
+                    boolean actual = cigarParty(cigars, isWeekend);
+
+                    System.out.println(actual == expected ? "Test 6 PASSED" : "Test 6 FAILED");
+                }
+
+                @Test
+                public void testCigarParty7() {
+
+                    int cigars = 61;
+                    boolean isWeekend = false;
+                    boolean expected = false;
+
+                    boolean actual = cigarParty(cigars, isWeekend);
+
+                    System.out.println(actual == expected ? "Test 7 PASSED" : "Test 7 FAILED");
+                }
+
+                @Test
+                public void testCigarParty8() {
+
+                    int cigars = 40;
+                    boolean isWeekend = false;
+                    boolean expected = false;
+
+                    boolean actual = cigarParty(cigars, isWeekend);
+
+                    System.out.println(actual == expected ? "Test 8 PASSED" : "Test 8 FAILED");
+                }
+
+                    @Test
+                    public void testCigarParty9() {
+                        // Arrange
+                        int cigars = 39;
+                        boolean isWeekend = false;
+                        boolean expected = false;
+
+
+                        boolean actual = cigarParty(cigars, isWeekend);
+
+
+                        System.out.println(actual == expected ? "Test 9 PASSED" : "Test 9 FAILED");
+                    }
+
+                    @Test
+                    public void testCigarParty10() {
+                        // Arrange
+                        int cigars = 40;
+                        boolean isWeekend = true;
+                        boolean expected = true;
+
+                        boolean actual = cigarParty(cigars, isWeekend);
+
+                        System.out.println(actual == expected ? "Test 10 PASSED" : "Test 10 FAILED");
+                    }
+
+                    @Test
+                    public void testCigarParty11() {
+
+                        int cigars = 39;
+                        boolean isWeekend = true;
+                        boolean expected = false;
+
+                        boolean actual = cigarParty(cigars, isWeekend);
+
+                        System.out.println(actual == expected ? "Test 11 PASSED" : "Test 11 FAILED");
+                }
+
+
+
+
                 }
         }
     }
-}
 }
