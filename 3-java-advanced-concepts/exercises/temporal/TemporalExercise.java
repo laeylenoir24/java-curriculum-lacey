@@ -66,7 +66,7 @@ public class TemporalExercise {
     public List<LocalDate> getNextFridays(LocalDate date, int fridayCount) {
         return null;
     }
-    //I don't understand what this question is asking for.
+    // I don't understand what this question is asking for.
 
 
     // 9. return the absolute value of the days between two dates.
