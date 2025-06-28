@@ -1,8 +1,12 @@
 package temporal;
 
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TemporalExercise {
@@ -52,9 +56,8 @@ public class TemporalExercise {
     // 7. return the fifth Friday from the parameter date.
     // if the date is Friday, don't count it.
     public LocalDate fiveFridaysFromDate(LocalDate date) {
-        LocalDate tonight = date.plusDays(1);
-
-        return null;
+        LocalDate today = date.plusDays(1);
+        return today.plusWeeks(5);
     }
 
     // 8. given a date and a count,
@@ -63,13 +66,15 @@ public class TemporalExercise {
     public List<LocalDate> getNextFridays(LocalDate date, int fridayCount) {
         return null;
     }
-
     //I don't understand what this question is asking for.
+
 
     // 9. return the absolute value of the days between two dates.
     // one may be before two, two may be before one, but neither will be null
     public int getDaysBetween(LocalDate one, LocalDate two) {
-        return 0;
+        one = LocalDate.now();
+        two = LocalDate.of(2025, 10, 01);
+        return (int) ChronoUnit.DAYS.between(one, two);
     }
 
     // given a time parameter, return a list of the next 4
@@ -86,7 +91,21 @@ public class TemporalExercise {
     // time == 04:30:00
     // appointments == 04:30, 04:45, 05:00, 05:15
     public List<LocalTime> getQuarterHourAppointments(LocalTime time) {
-        return null;
+        time = LocalTime.now();
+        List<LocalTime> appointments = new ArrayList<>();
+
+        appointments.add(LocalTime.now().plusMinutes(15));
+        appointments.add(LocalTime.now().plusMinutes(30));
+        appointments.add(LocalTime.now().plusMinutes(45));
+        appointments.add(LocalTime.now().plusMinutes(60));
+
+        LocalTime schedule = LocalTime.of(10, 30);
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("h:mm");
+        for (LocalTime appointment : appointments) {
+            System.out.println(schedule.format(timeFormat));
+            schedule = schedule.plusMinutes(15);
+        }
+        return appointments;
     }
 
 
