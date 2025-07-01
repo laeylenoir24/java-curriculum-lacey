@@ -1,13 +1,15 @@
 package FileIO;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class FileIOExercise {
+public static class FileIOExercise {
     public static void main(String[] args) {
 
     }
@@ -86,18 +88,48 @@ public class FileIOExercise {
 
 
     // 6. Create a method to serialize your new object into a csv line in the text file exercise_file3.txt
-     public static void serializetoys(String toys) {
+     public static void serializetoys(Path classFile, String toys) {
+        classFile = Paths.get("3-java-advanced-concepts/exercises/FileIO/NewClass.java");
+        toys = ("Barbie");
+        serializetoys(classFile, toys);
 
-        //just taking a break. will complete before class
+         System.out.println(toys);
+
+         try {
+             if (Files.exists(classFile)) {
+                 Files.write(classFile, (toys + "\n").getBytes(), StandardOpenOption.APPEND);
+             } else {
+                 Files.write(classFile, (toys + "\n").getBytes(), StandardOpenOption.CREATE);
+             }
+             } catch (IOException e) {
+             e.printStackTrace();
+         }
+
+
 
      }
      }
 
     // 7. Create a method to deserialize your new object from the exercise_file3.txt into an ArrayList of Objects
-    // public static ArrayList<[YOUR OBJECT]> deserializeObject() {
-    //    return null;
-    // }
+    public static ArrayList<NewClass> deserializeToys(Path classFile) {
+        ArrayList<NewClass> toys = new ArrayList<>();
 
+        try {
+            for (String toy : Files.readAllLines(classFile)) {
+                String[] csvLine = toy.split(",");
+                String[] releaseDate = csvLine[2].split("-");
+                NewClass toyBox = new NewClass("Barbie", LocalDate.of(2025, 07, 01), BigDecimal.valueOf(15.99));
+                toys.add(toyBox);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return toys;
+
+    }
+
+void main() {
+}
 
 
 
