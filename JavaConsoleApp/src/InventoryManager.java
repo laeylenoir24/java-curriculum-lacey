@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 import static objects.ConsoleUI.scanner;
 
@@ -9,7 +9,7 @@ import static objects.ConsoleUI.scanner;
 public class InventoryManager {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Path path = Path.of("JavaConsoleApp/src/Inventory.txt");
+        Path path = Path.of("JavaConsoleApp/src/data/Inventory.txt");
 
         while (true) {
             System.out.println("Inventory Manager");
@@ -18,6 +18,8 @@ public class InventoryManager {
             System.out.println("3. Update product price");
             System.out.println("4. View inventory");
             System.out.println("5. Exit");
+
+            path = Paths.get("")
 
             String input = scanner.nextLine();
 
