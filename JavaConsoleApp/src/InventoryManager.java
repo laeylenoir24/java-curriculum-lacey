@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.nio.file.Path;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ import static objects.ConsoleUI.scanner;
 public class InventoryManager {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Product> inventory = new ArrayList<>();
+        Path path = Path.of("JavaConsoleApp/src/Inventory.txt");
 
         while (true) {
             System.out.println("Inventory Manager");
@@ -39,7 +40,7 @@ public class InventoryManager {
         }
 
         private static void addProduct() {
-            System.out.println("Enter product name: ");
+            System.out.println("You are about to add a product. Enter the product's name: ");
             String productName = scanner.nextLine();
 
             System.out.println("Enter product quantity: ");
@@ -48,12 +49,48 @@ public class InventoryManager {
             System.out.println("Enter product price per unit: ");
             BigDecimal price = new BigDecimal(scanner.nextLine());
             Product product = new Product(productName, quantity, price);
+            System.out.println("Product " + product.getProductID());
+        }
 
-            ArrayList<String> inventory = new ArrayList<>();
-            inventory.add("Laptop");
-            inventory.add("Cellphone");
-            inventory.add("Monitor");
-            inventory.add("Mousepad");
+        private static void removeProduct() {
+            System.out.println("You are about to remove a product. Enter the product's name: ");
+            String productName = scanner.nextLine();
+
+            System.out.println("Enter product quantity: ");
+            int quantity = Integer.parseInt(scanner.nextLine());
+
+            if (productName != null) {
+                inventory.remove(productName);
+                System.out.println("Product removed");
+            } else {
+                System.out.println("Product not found.");
+            }
+
+        }
+
+        private static void updatePrice() {
+            System.out.println("You are about to make a price update. Enter the product's name: ");
+            String productName = scanner.nextLine();
+
+            if (productName != null) {
+                System.out.println("Enter the updated price: ");
+                BigDecimal newPrice = new BigDecimal(scanner.nextLine());
+                System.out.println("Price updated.");
+            } else {
+                System.out.println("Product not found.");
+            }
+
+        }
+
+        private static void viewInventory() {
+            if (inventory.isEmpty()) {
+                System.out.println("Nothing to see here.");
+            } else {
+                System.out.println("Inventory: ");
+                for (String productName : inventory) {
+                    System.out.println(productName);
+                }
+            }
         }
 
 
@@ -63,7 +100,7 @@ public class InventoryManager {
         private static int quantity;
         private static BigDecimal price;
 
-        public Product(int productID, String productName, int quantity, BigDecimal price) {
+        public Product(String productName, int quantity, BigDecimal price) {
             this.productID = productID++;
             this.productName = productName;
             this.quantity = quantity;
@@ -103,4 +140,5 @@ public class InventoryManager {
         }
 
     }
+
 }
