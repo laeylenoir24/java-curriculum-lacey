@@ -1,6 +1,7 @@
 package menuUI;
 
 import model.Product;
+import service.InventoryService;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -10,9 +11,11 @@ import static objects.ConsoleUI.scanner;
 
 
 public class MenuUI {
-    static ArrayList<Product> inventory = new ArrayList<>();
+    public static ArrayList<Product> inventory = new ArrayList<>();
+    private static final InventoryService manager = new InventoryService();
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("User Menu\n");
