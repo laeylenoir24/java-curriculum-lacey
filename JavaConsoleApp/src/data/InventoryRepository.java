@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
 import static menuUI.MenuUI.inventory;
 
@@ -29,15 +30,15 @@ public class InventoryRepository {
         }
     }
 
-    public ArrayList<Product> load() throws IOException {
+    public ArrayList<Product> load() {
         ArrayList<Product> inventory = new ArrayList<>();
         if (!Files.exists(path))
             return inventory;
 
         try {
-            ArrayList<String> lines = Files.readAllLines(path);
+            List<String> lines = Files.readAllLines(path);
             for (String line : lines) {
-                String[] parts = line.split(", ");
+                String[] parts = line.split(",");
                 if (parts.length == 3) {
                     String productName = parts[0];
                     int quantity = Integer.parseInt(parts[1]);
@@ -48,5 +49,6 @@ public class InventoryRepository {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return inventory;
     }
 }

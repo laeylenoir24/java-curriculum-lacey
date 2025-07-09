@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 public class InventoryService {
     private final ArrayList<Product> inventory = new ArrayList<>();
+    public InventoryService(ArrayList<Product> inventory) {
+        this.inventory.addAll(inventory);
+    }
 
     public void addProduct(String productName, int quantity, BigDecimal price) {
         Product product = new Product(productName, quantity, price);
@@ -14,7 +17,7 @@ public class InventoryService {
         System.out.println("Product added: " + product);
     }
 
-    public void removeProduct(String productName) {
+    public void removeProduct(String productName, int quantityToRemove) {
         Product toRemove = findByProductName(productName);
         if (toRemove != null) {
             inventory.remove(toRemove);
@@ -43,6 +46,10 @@ public class InventoryService {
                 System.out.println(products);
             }
         }
+    }
+
+    public ArrayList<Product> getInventory() {
+        return inventory;
     }
 
     private Product findByProductName(String productName) {
