@@ -13,7 +13,7 @@ import static objects.ConsoleUI.scanner;
 
 public class MenuUI {
     public static ArrayList<Product> inventory = new ArrayList<>();
-    private static final InventoryManager manager = new InventoryManager("JavaConsoleApp/src/data/Inventory.txt");
+    public static InventoryManager manager = new InventoryManager("JavaConsoleApp/src/data/Inventory.txt");
     private static final InventoryService service = manager.getService();
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -62,13 +62,13 @@ public class MenuUI {
         System.out.println("Product added.");
     }
 
-    private static void removeProduct() {
+    public static void removeProduct() {
         System.out.println("You are about to remove a product. Enter the product's name: ");
         String nameToRemove = scanner.nextLine();
 
         System.out.println("Enter quantity to remove: ");
         int quantityToRemove = Integer.parseInt(scanner.nextLine());
-        service.removeProduct(nameToRemove, quantityToRemove);
+        service.removeProduct(nameToRemove);
     }
 
     private static void updatePrice() {

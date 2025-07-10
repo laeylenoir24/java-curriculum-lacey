@@ -17,7 +17,7 @@ public class InventoryService {
         System.out.println("Product added: " + product);
     }
 
-    public void removeProduct(String productName, int quantityToRemove) {
+    public void removeProduct(String productName) {
         Product toRemove = findByProductName(productName);
         if (toRemove != null) {
             inventory.remove(toRemove);
@@ -52,7 +52,7 @@ public class InventoryService {
         return inventory;
     }
 
-    private Product findByProductName(String productName) {
+    public Product findByProductName(String productName) {
         for (Product products : inventory) {
             if (products.getProductName().equalsIgnoreCase(productName)) {
                 return products;

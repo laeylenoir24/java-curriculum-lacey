@@ -17,12 +17,12 @@ public class Product {
 
     }
 
-    public static int getStartingID() {
+    public int getStartingID() {
         return startingID;
     }
 
-    public static void setStartingID(int startingID) {
-        Product.startingID = startingID;
+    public void setStartingID(int startingID) {
+        this.startingID = startingID;
     }
 
     public int getProductID() {
