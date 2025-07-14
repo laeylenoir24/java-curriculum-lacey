@@ -14,7 +14,6 @@ public class Product {
         this.productName = productName;
         this.quantity = quantity;
         this.price = price;
-
     }
 
     public int getStartingID() {

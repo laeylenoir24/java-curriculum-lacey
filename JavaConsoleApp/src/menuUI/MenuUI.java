@@ -65,7 +65,6 @@ public class MenuUI {
     public static void removeProduct() {
         System.out.println("You are about to remove a product. Enter the product's name: ");
         String nameToRemove = scanner.nextLine();
-
         System.out.println("Enter quantity to remove: ");
         int quantityToRemove = Integer.parseInt(scanner.nextLine());
         service.removeProduct(nameToRemove);

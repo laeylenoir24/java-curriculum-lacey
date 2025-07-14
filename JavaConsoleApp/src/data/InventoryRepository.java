@@ -13,7 +13,6 @@ import static menuUI.MenuUI.inventory;
 
 public class InventoryRepository {
     Path path = Path.of("JavaConsoleApp/src/data/Inventory.txt");
-
     public InventoryRepository(String path) {
         this.path = Path.of("JavaConsoleApp/src/data/Inventory.txt");
     }

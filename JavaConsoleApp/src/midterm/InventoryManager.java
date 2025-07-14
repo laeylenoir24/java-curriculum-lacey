@@ -4,6 +4,7 @@ import data.InventoryRepository;
 import model.Product;
 import service.InventoryService;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,16 +23,14 @@ public class InventoryManager {
     }
 
     public void saveInventory() {
-            repository.save(service.getInventory());
+        repository.save(service.getInventory());
     }
 
     public void addProduct(Product product) {
         inventory.add(product);
-
     }
 
     public void removeProduct(String string, int i) {
-
     }
 
     public List<Product> getInventory() {
