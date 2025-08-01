@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 60 px 40px;
+    background-color: #b30000;
+    background-blend-mode: overlay;
+    background-repeat: repeat;
+    background-size: auto;
+}
+h1 {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+.styled-text {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-decoration: underline;
+}
+.highlight {
+    color: red;
+}
+.layout-text {
+    text-align: justify;
+    line-height: 1.6;
+}
+.main-nav {
+  background-color: black;
+  padding: 12px 24px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav li {
+
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: #ff4d4d;
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+h1, h2, h3, h4 {
+  font-family: 'Nosifer', cursive;
+}
+#banner-flash {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: flash 1s ease forwards;
+  margin-bottom: 20px;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
